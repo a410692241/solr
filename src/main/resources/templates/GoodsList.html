@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>goodsList</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1,user-scalable=no">
+</head>
+
+<body>
+
+<table border="1">
+    <tr>
+        <th>goodsName</th>
+        <th>age</th>
+        <th>sex</th>
+    </tr>
+    <tr th:each="goods,goodsStat : ${page.datas}">
+        <td th:utext="${goods.goodsName}"></td>
+        <td th:utext="${goods.age}"></td>
+        <td th:utext="${goods.sex}"></td>
+    </tr>
+    <span th th:if="${page.page != 1}">
+        <li><a th:href="${#request.getContextPath()+'/query?page=1&key='+key}">首页</a></li>
+         <li><a th:href="${#request.getContextPath()+'/query?page='+(page.page-1)+'&key='+key}">上一页</a></li>
+    </span>
+    <span th th:if="${page.page != page.pageCount}">
+        <li><a th:href="${#request.getContextPath()+'/query?page='+(page.page+1)+'&key='+key}">下一页</a></li>
+        <li><a th:href="${#request.getContextPath()+'/query?page='+(page.pageCount)+'&key='+key}">尾页</a></li>
+    </span>
+    当前第<span th:text="${page.page}"></span>页
+</table>
+</body>
+</html>

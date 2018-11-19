@@ -1,0 +1,8 @@
+spring:
+  data:
+    solr:
+      #这里的host地址对应配置的solrhome/collection/core.properties中的name的值
+      host: http://192.168.9.128:8081/solr/collection
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
