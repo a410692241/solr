@@ -39,7 +39,7 @@ public class SolrApplicationTests {
             solrInputFields.addField("age","22"+i);
             solrInputFields.addField("sex","男");
             //将索引对象保存到索引库中(id相同就是修改)
-            solrClient.add(solrInputFields);
+                solrClient.add(solrInputFields);
 
         }
             solrClient.commit();
